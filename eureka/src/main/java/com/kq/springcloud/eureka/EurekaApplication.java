@@ -1,15 +1,13 @@
 package com.kq.springcloud.eureka;
 
-/**
- * Created by qikong on 18/10/21.
- */
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * 使用Eureka做服务发现.
- * @author 周立
+ * @author kq
  */
 @SpringBootApplication
 @EnableEurekaServer
