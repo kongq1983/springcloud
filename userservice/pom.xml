@@ -19,6 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <com.kq.springcloud.common.version>1.0-SNAPSHOT</com.kq.springcloud.common.version>
     </properties>
 
     <dependencies>
@@ -36,6 +37,19 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kq.springcloud</groupId>
+            <artifactId>common</artifactId>
+            <version>${com.kq.springcloud.common.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
