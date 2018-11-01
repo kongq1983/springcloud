@@ -2,6 +2,11 @@ package com.kq.springcloud.printer;
 
 import com.kq.springcloud.printable.SaleTicket;
 
+import javax.print.DocFlavor;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
 import java.awt.print.*;
 
 /**
@@ -29,7 +34,8 @@ public class SaleTickerPrinter {
 
             //设置打印纸页面信息。通过Paper设置页面的空白边距和可打印区域。必须与实际打印纸张大小相符。
             Paper paper = new Paper();
-            paper.setSize(158,30000);// 纸张大小
+//            paper.setSize(158,30000);// 纸张大小
+            paper.setSize(152,30000);// 纸张大小
             paper.setImageableArea(0,0,158,30000);// A4(595 X 842)设置打印区域，其实0，0应该是72，72，因为A4纸的默认X,Y边距是72
             pf.setPaper(paper);
 
@@ -37,7 +43,10 @@ public class SaleTickerPrinter {
             PrinterJob job = PrinterJob.getPrinterJob(); //获取打印服务对象
             job.setPageable(book); //设置打印类
 
-            job.printDialog(); //询问
+            PrintService printService = getPrintService("NPIA7349C (HP LaserJet Pro MFP M226dn)");
+            job.setPrintService(printService);
+
+//            job.printDialog(); //询问
 
             job.print(); //开始打印
 
@@ -45,6 +54,30 @@ public class SaleTickerPrinter {
             e.printStackTrace();
         }
 
+    }
+
+
+    private PrintService getPrintService(String printName) {
+        PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+        //1份
+//        pras.add(new Copies(1));
+
+        DocFlavor flavor = DocFlavor.BYTE_ARRAY.PNG;
+//        DocFlavor flavor = DocFlavor.STRING.TEXT_HTML;
+//
+        //可用的打印机列表(字符串数组)
+        PrintService printService[] = PrintServiceLookup.lookupPrintServices(flavor, pras);
+
+        if (printService != null) {
+            for (PrintService p : printService) {
+                System.out.println("printname="+p.getName());
+                if (p.getName().equals(printName)) {
+
+                    return p;
+                }
+            }
+        }
+        return null;
     }
 
 

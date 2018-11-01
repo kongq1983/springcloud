@@ -47,6 +47,9 @@ public class SaleTicket implements Printable {
         double x= pageFormat.getImageableX(); //返回与此 PageFormat相关的 Paper对象的可成像区域左上方点的 x坐标。
         double y= pageFormat.getImageableY(); //返回与此 PageFormat相关的 Paper对象的可成像区域左上方点的 y坐标。
 
+        int width = (int)pageFormat.getPaper().getWidth();
+        System.out.println("width="+width);
+
         //Font.PLAIN： 普通样式常量 Font.ITALIC 斜体样式常量
         //        Font.BOLD 粗体样式常量。
         Font font = new Font("宋体",Font.BOLD,10); //根据指定名称、样式和磅值大小，创建一个新 Font。
@@ -55,8 +58,18 @@ public class SaleTicket implements Printable {
 
         //设置小票的标题标题
 
-        g2.drawString("源辰信息科技有限公司",(float)x+25,(float)y+heigth);
+//        g2.drawString("源辰信息科技有限公司",(float)x+25,(float)y+heigth);
+
         float line = 2*heigth; //下一行开始打印的高度
+
+        BasicStroke solidLineStroke = new BasicStroke(1f,BasicStroke.CAP_SQUARE,BasicStroke.JOIN_MITER,1f,new float[]{0.1f},0.0f);
+
+        g2.drawString("0001",(float)x+120,(float)y+heigth);
+        g2.setStroke(solidLineStroke);
+        g2.drawLine((int)x,(int)(y+line),(int)x+width,(int)(y+line));
+
+        line = line+8;
+
 
         g2.setFont(new Font("宋体", Font.PLAIN,8));//设置正文字体
         heigth = font.getSize2D();// 字体高度
@@ -69,6 +82,11 @@ public class SaleTicket implements Printable {
         //设置订单号
         g2.drawString("订单号:"+saleOrder.getOrderCode(), (float)x+20,(float)y+line);
         line+=heigth+2;
+
+        g2.setStroke(solidLineStroke);
+        g2.drawLine((int)x,(int)(y+line),(int)x+width,(int)(y+line));
+
+        line = line+10;
 
         //设置标题
         g2.drawString("名称",(float)x+20, (float)y+line);
@@ -121,10 +139,10 @@ public class SaleTicket implements Printable {
 
 
         //虚线设置
-        g2.setStroke(new BasicStroke(1f,BasicStroke.CAP_BUTT,BasicStroke.JOIN_MITER,4.0f,new float[]{4.0f},0.0f));
+        g2.setStroke(solidLineStroke);
 
 //在此图形上下文的坐标系中使用当前颜色在点 (x1, y1) 和 (x2, y2) 之间画一条线。 即绘制虚线
-        g2.drawLine((int)x,(int)(y+line),(int)x+158,(int)(y+line));
+        g2.drawLine((int)x,(int)(y+line),(int)x+width,(int)(y+line));
 
         line+=heigth;
 
@@ -142,13 +160,13 @@ public class SaleTicket implements Printable {
 
         }
 
-        g2.drawLine((int) x, (int)(y+line), (int) x + 158, (int)(y+line));
+        g2.drawLine((int) x, (int)(y+line), (int) x + width, (int)(y+line));
 
         line += heigth+2;
 
 //        g2.drawString("商品总数:"+totalGoodsNum+ "件",(float)x+15,(float)y+line);
 
-        g2.drawString("合计:"+String.valueOf(saleOrder.getTotal())+" 元", (float)x+80, (float)y+line);
+        g2.drawString("合计:"+String.valueOf(saleOrder.getTotal())+" 元", (float)x+100, (float)y+line);
 
         line += heigth;
 
@@ -171,7 +189,7 @@ public class SaleTicket implements Printable {
 
 //        line += heigth;
 
-        g2.drawString("钱票请当面点清，离开柜台恕不负责",(float)x+15,(float)y+line);
+//        g2.drawString("钱票请当面点清，离开柜台恕不负责",(float)x+15,(float)y+line);
 
         switch (pageIndex) {
             case 0:
