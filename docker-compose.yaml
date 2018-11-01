@@ -1,14 +1,17 @@
 version: '3'
 services:
-  #eurake:
-   # build: /jar
-   # ports:
-    # - "11000:11000"
-  eurake0:
-    image: "192.168.1.148:5000/eurake:1.0.2"
+  eureka:
+    build: eureka
+    image: 192.168.1.148:5000/eurake:1.0.3
+    ports:
+     - "8761:8761"
+   # context: .
+   # dockerfile: eureka/Dockerfile
+#  eurake0:
+#    image: "192.168.1.148:5000/eurake:1.0.2"
 #    ports:
  #     - "11000:11000"
-  eurake1:
-    image: "192.168.1.148:5000/eurake:1.0.2"
+ # eurake1:
+  #  image: "192.168.1.148:5000/eurake:1.0.2"
 #    ports:
-      - "11001:11000"
+   #   - "11001:11000"

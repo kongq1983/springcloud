@@ -12,6 +12,7 @@
         <module>common</module>
         <module>eureka</module>
         <module>userservice</module>
+        <module>printservice</module>
     </modules>
 
 
