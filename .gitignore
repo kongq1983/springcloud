@@ -3,3 +3,6 @@
 /eureka/target/
 /common/target/
 /printservcie/target/
+/mybatis/target/
+
+*.class

@@ -8,12 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="eureka" />
+        <module name="mybatis" />
+        <module name="printservice" />
         <module name="userservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.6" />
       <module name="eureka" target="1.8" />
+      <module name="mybatis" target="1.6" />
+      <module name="printservice" target="1.6" />
       <module name="springcloud" target="1.6" />
       <module name="userservice" target="1.8" />
     </bytecodeTargetLevel>
