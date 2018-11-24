@@ -2,17 +2,16 @@ package com.kq.mybatis.mapper.online;
 
 import org.springframework.stereotype.Repository;
 
-import java.lang.annotation.Documented;
 import java.util.List;
 
 /**
- * AccountMapper
+ * UserMapper
  *
  * @author1 kq
- * @date 2018-11-20
+ * @date 2018-11-24
  */
-@Repository("onlineAccountMapper")
-public interface AccountMapper {
+@Repository("onlineUserMapper")
+public interface UserMapper {
 
     /**
      * 得到线上所有用户账号
