@@ -1,0 +1,7 @@
+server:
+  port: 8902
+
+
+app.id=configdemoid
+
+apollo.meta=http://192.168.5.231:8080

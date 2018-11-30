@@ -4,5 +4,9 @@
 /common/target/
 /printservcie/target/
 /mybatis/target/
+/redis/target/
+
+/.idea
+/.idea/
 
 *.class
