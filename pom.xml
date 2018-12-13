@@ -16,6 +16,8 @@
         <module>mybatis</module>
         <module>apolloclient</module>
         <module>redis</module>
+        <module>elasticsearch</module>
+        <module>springmvc</module>
     </modules>
 
 

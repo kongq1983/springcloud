@@ -1,0 +1,41 @@
+功能                            windows                   mac_os_x _10.5+                    mac_os_x
+
+搜索类                        shift+ctrl+n              command+o                           shift+command+n          
+
+搜索文件                    shift+ctrl+f               shift+command+f                 shift+control+f
+
+当前文件替换            ctrl+r                         command+r
+
+全部替换                    shift+ctrl+r               shift+command+r
+
+查找文件                    shift+shift                 shift+shift
+
+最近打开文件            ctrl+e                         command+e
+
+最近编辑文件            ctrl+shift+e               shift+command+e
+
+大小写切换                shift+ctrl+u               shift+command+u        
+
+格式化代码                ctrl+alt+L                   command+alt+L             
+
+重命名                       shift+f6(选中文件名)                           
+
+去下一行                    shift+enter                 shift+enter      
+
+缩放窗口                                                        ⇧⌘←    ⇧⌘→      
+
+上一步/下一步           ctrl+alt+← (→)
+
+上下移                                                             shift+alt+↑   ↓                          
+
+局部变量抽取成员变量   alt+shift+f
+
+打开文件夹                ctrl+alt+f12
+
+跳转到具体行            ctrl+g
+
+未实现接口                ctrl+i
+
+折叠/打开                  ctrl+-/ctrl++
+
+全部折叠/打开           shift+ctrl+-   shif+ctrl++
