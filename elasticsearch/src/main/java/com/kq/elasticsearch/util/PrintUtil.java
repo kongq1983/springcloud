@@ -1,8 +1,11 @@
 package com.kq.elasticsearch.util;
 
+import org.elasticsearch.action.DocWriteResponse;
+import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.support.replication.ReplicationResponse;
+import org.elasticsearch.action.update.UpdateResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +26,7 @@ public class PrintUtil {
      * @param getResponse
      */
     public static void printResponse(GetResponse getResponse) {
-        logger.info("response={}",getResponse);
+        logger.info("getResponse={}",getResponse);
 
         String index = getResponse.getIndex();
         String type = getResponse.getType();
@@ -39,7 +42,7 @@ public class PrintUtil {
     }
 
     public static void printResponse(DeleteResponse deleteResponse) {
-        logger.info("response={}",deleteResponse);
+        logger.info("deleteResponse={}",deleteResponse);
 
         String index = deleteResponse.getIndex();
         String type = deleteResponse.getType();
@@ -55,6 +58,30 @@ public class PrintUtil {
                 String reason = failure.reason();
             }
         }
+    }
+
+    public static void printResponse(UpdateResponse updateResponse) {
+
+        logger.info("updateResponse={}",updateResponse);
+
+        String index = updateResponse.getIndex();
+        String type = updateResponse.getType();
+        String id = updateResponse.getId();
+        long version = updateResponse.getVersion();
+        if (updateResponse.getResult() == DocWriteResponse.Result.CREATED) {
+
+        } else if (updateResponse.getResult() == DocWriteResponse.Result.UPDATED) {
+
+        } else if (updateResponse.getResult() == DocWriteResponse.Result.DELETED) {
+
+        } else if (updateResponse.getResult() == DocWriteResponse.Result.NOOP) {
+
+        }
+    }
+
+
+    public static void printResponse(BulkResponse responses) {
+        logger.info("bulkResponse={}",responses);
     }
 
 }
