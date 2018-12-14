@@ -32,7 +32,6 @@ public class BulkRequestDemo {
                 .source(XContentType.JSON,"field", "baz"));
 
         BulkResponse bulkResponse = client.bulk(request, RequestOptions.DEFAULT);
-
         PrintUtil.printResponse(bulkResponse);
 
         client.close();
