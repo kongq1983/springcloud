@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * RateLimiterFilter
@@ -25,8 +26,12 @@ public class RateLimiterFilter implements Filter {
 
     private RateLimiter limiter = null;
 
+    private AtomicLong passAto = new AtomicLong();
+
+    private AtomicLong totalAto = new AtomicLong();
+
     public void init(FilterConfig config) throws ServletException {
-        limiter = RateLimiter.create(10); //100 request per second
+        limiter = RateLimiter.create(100); //request per second
         logger.info("RateLimiter init end.");
     }
 
@@ -39,10 +44,10 @@ public class RateLimiterFilter implements Filter {
         HttpServletResponse res = (HttpServletResponse) response;
 
         if(limiter.tryAcquire()) {
-            logger.debug("pass------------------------------");
+            logger.debug("pass----------------------totalRequest={}-----successRequest={}",totalAto.getAndIncrement(),passAto.getAndIncrement());
             chain.doFilter(request, response);
         } else {
-            logger.debug("system limitation reached!");
+            logger.debug("system limitation reached! totalRequest={} ",totalAto.getAndIncrement());
 
             if(this.isAjax(req)) {
                 this.out(res);
