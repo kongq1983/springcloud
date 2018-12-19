@@ -21,12 +21,12 @@ public class CoreSender {
     private AmqpTemplate rabbitTemplate;
 
     public void user(String msg){
-        logger.info("api.core.user send message: {}",msg);
+        logger.info("topic.core.user send message: {}",msg);
         rabbitTemplate.convertAndSend("coreExchange", "topic.core.user", msg);
     }
 
     public void userQuery(String msg){
-        logger.info("api.core.user.query send message: {}",msg);
+        logger.info("topic.core.user.query send message: {}",msg);
         rabbitTemplate.convertAndSend("coreExchange", "topic.core.user.query", msg);
     }
 }

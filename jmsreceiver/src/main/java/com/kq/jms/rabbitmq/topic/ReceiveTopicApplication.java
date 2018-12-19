@@ -13,10 +13,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.kq.jms.rabbitmq.topic")
-public class TopicApplication {
+public class ReceiveTopicApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TopicApplication.class, args);
+        SpringApplication.run(ReceiveTopicApplication.class, args);
     }
 
 }

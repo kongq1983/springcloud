@@ -1,0 +1,19 @@
+
+server:
+  port: 8093
+
+spring:
+  application:
+    name: ratelimiter
+  mvc:
+    view:
+      prefix: /jsp/
+      suffix: .jsp
+
+
+
+
+
+
+
+

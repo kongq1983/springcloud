@@ -1,8 +1,9 @@
+
 server:
   port: 8092
 spring:
   application:
-    name: jmssender
+    name: jmsreceive
   rabbitmq:
     host: 192.168.5.231
     port: 5672
@@ -13,6 +14,8 @@ spring:
             enabled: true
             initial-interval: 2
     virtual-host: /zyzh
+
+
 
 
 
