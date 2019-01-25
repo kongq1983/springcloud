@@ -1,0 +1,22 @@
+
+
+databaseId支持
+
+ @Bean
+ public DatabaseIdProvider getDatabaseIdProvider() {
+     DatabaseIdProvider databaseIdProvider = new VendorDatabaseIdProvider();
+     Properties p = new Properties();
+     p.setProperty("Oracle", "oracle");
+     p.setProperty("MySQL", "mysql");
+     databaseIdProvider.setProperties(p);
+     return databaseIdProvider;
+ }
+
+
+
+指定mysql或者oracle
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  executor-type: SIMPLE
+  configuration:
+    database-id: mysql

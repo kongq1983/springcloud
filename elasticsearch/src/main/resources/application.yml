@@ -15,3 +15,54 @@ spring:
 #      defaultZone: http://localhost:8761/eureka/
 #  instance:
 #    prefer-ip-address: true
+
+
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  executor-type: SIMPLE
+
+pagehelper:
+  helperDialect: oracle
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+  level:
+    com:
+      zyxk: debug
+
+datasource:
+  use: druid
+  druid:
+    name: druid-datasource-1
+#    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&serverTimezone=GMT
+#    url: jdbc:oracle:thin:@192.168.5.232:1521:RESTAURANT
+    url: jdbc:oracle:thin:@192.168.5.235:1521:ORCL
+    driverClass: oracle.jdbc.OracleDriver
+#    driverClass: com.mysql.cj.jdbc.Driver
+    username: shr
+    password: shr
+    initialSize: 1
+    minIdle: 1
+    maxActive: 20
+    maxWait: 60000
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    validationQuery: select 1 from dual
+    validationQueryTimeout: 10
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    keepAlive: false
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+#   connectionInitSqls:
+#   exceptionSorter:
+#   filters:
+#   以下三项配置生产环境请勿开启
+    removeAbandoned: false
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+    encrypted: false

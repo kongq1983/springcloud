@@ -20,4 +20,11 @@ public interface AccountMapper {
      */
     public List<String> getUsers();
 
+    /**
+     * databaseId
+     * @param account
+     * @return
+     */
+    public String getUserName(String account);
+
 }

@@ -1,5 +1,6 @@
 package com.kq.mybatis.controller;
 
+import com.kq.mybatis.mapper.online.AccountMapper;
 import com.kq.mybatis.mapper.online.UserMapper;
 import com.kq.mybatis.service.online.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class OnlineController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private AccountMapper accountMapper;
+
     @GetMapping("/getAccounts")
     public List<String> getAccounts(){
         return this.accountService.getUsers();
@@ -34,6 +38,12 @@ public class OnlineController {
     @GetMapping("/getUsers")
     public List<String> getUsers(){
         return this.userMapper.getUsers();
+    }
+
+
+    @GetMapping("/getUsername")
+    public String getUsername(){
+        return accountMapper.getUserName("");
     }
 
 }
