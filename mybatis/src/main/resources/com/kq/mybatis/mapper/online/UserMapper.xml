@@ -7,4 +7,9 @@
   </select>
 
 
+<select id="getPageUsers" resultType="String">
+    select username from t_user
+</select>
+
+
 </mapper>

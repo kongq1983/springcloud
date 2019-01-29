@@ -5,7 +5,8 @@ server:
 spring:
   profiles:
     active:
-      oracle
+#      oracle
+      mysql
 
 
 
@@ -13,5 +14,6 @@ spring:
 logging:
   level:
     com:
-      zyxk: debug
+      debug
+#      zyxk: debug
         

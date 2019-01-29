@@ -1,8 +1,10 @@
 package com.kq.mybatis.controller;
 
+import com.github.pagehelper.Page;
 import com.kq.mybatis.mapper.online.AccountMapper;
 import com.kq.mybatis.mapper.online.UserMapper;
 import com.kq.mybatis.service.online.AccountService;
+import com.kq.mybatis.service.online.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,9 @@ public class OnlineController {
     @Autowired
     private AccountMapper accountMapper;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/getAccounts")
     public List<String> getAccounts(){
         return this.accountService.getUsers();
@@ -44,6 +49,18 @@ public class OnlineController {
     @GetMapping("/getUsername")
     public String getUsername(){
         return accountMapper.getUserName("");
+    }
+
+
+    @GetMapping("/getPageUsers")
+    public Page<String> getPageUsers(){
+        return userService.getPageUsers();
+    }
+
+
+    @GetMapping("/getPageUsers1")
+    public Page<String> getPageUsers1(){
+        return userService.getPageUsers();
     }
 
 }
