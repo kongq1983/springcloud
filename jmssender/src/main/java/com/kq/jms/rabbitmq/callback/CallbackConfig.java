@@ -95,7 +95,7 @@ public class CallbackConfig {
      * 消息接收者
      * @return
      */
-//    @Bean
+    @Bean
     public SimpleMessageListenerContainer messageContainer() {
 		/*Queue[] q = new Queue[queues.split(",").length];
 		for (int i = 0; i < queues.split(",").length; i++) {

@@ -45,6 +45,31 @@ public class UserServiceImpl implements UserService{
     }
 
 
+    public Page<String> getPageUsers2() {
+
+
+        return PageHelper.startPage(2,1).doSelectPage(()->userMapper.getUsers());
+
+//        PageHelper.startPage(2,1);
+//        return userMapper.getPageUsers();
+    }
+
+
+
+    public List<String> getPageUsers3() {
+
+        PageHelper.startPage(2,1);
+
+        return  userMapper.getPageUsers();
+    }
+
+
+    public List<String> getPageUsers4() {
+        PageHelper.startPage(2,1);
+
+        return userMapper.getUsers();
+    }
+
 
 
 }

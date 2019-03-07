@@ -35,6 +35,10 @@ public class CallbackSender implements RabbitTemplate.ConfirmCallback , RabbitTe
 
 
     public void send(String topic, String message) {
+        //false 数据未到queue 则丢失  mandatory : true
+        rabbitTemplate.setMandatory(true);
+        // 还要设置returnCallBack
+        rabbitTemplate.setReturnCallback(this);
         rabbitTemplate.setConfirmCallback(this);
         //消息ID
 //        CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());

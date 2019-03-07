@@ -63,4 +63,25 @@ public class OnlineController {
         return userService.getPageUsers();
     }
 
+
+    /**
+     * 分页 mapper是list
+     * @return
+     */
+    @GetMapping("/getPageUsers2")
+    public Page<String> getPageUsers2(){
+        return userService.getPageUsers2();
+    }
+
+    @GetMapping("/getPageUsers3")
+    public List<String> getPageUsers3(){
+        return userService.getPageUsers3();
+    }
+
+
+    @GetMapping("/getPageUsers4")
+    public List<String> getPageUsers4(){
+        return userService.getPageUsers4();
+    }
+
 }

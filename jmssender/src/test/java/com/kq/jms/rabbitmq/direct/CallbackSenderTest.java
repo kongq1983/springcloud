@@ -28,7 +28,7 @@ public class CallbackSenderTest {
         int size = 2;
         for(int i=1;i<size;i++) {
 //            sender.send("topic.callback.admin."+i, "测试消息2");
-            sender.send("topic.acallback.admin."+i, "acallback测试消息2");
+            sender.send("aatopic.acallback.admin."+i, "acallback测试消息2");
         }
     }
 
