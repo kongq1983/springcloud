@@ -1,4 +1,4 @@
-package com.kq.springcloud.eureka;
+package com.kq.eureka;
 
 
 import org.springframework.boot.SpringApplication;
