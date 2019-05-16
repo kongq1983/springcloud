@@ -9,6 +9,7 @@
 /.idea
 /.idea/
 
+target
+.idea
 *.class
-
 *.iml
