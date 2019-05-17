@@ -17,8 +17,8 @@ import java.io.IOException;
  * @date 2018-12-13
  */
 
-@Component
-@WebFilter(filterName="forwardFilter",urlPatterns="/115/*")
+//@Component
+//@WebFilter(filterName="forwardFilter",urlPatterns="/115/*")
 public class ForwardFilter implements Filter {
 
     private Logger log = LoggerFactory.getLogger(ForwardFilter.class);
