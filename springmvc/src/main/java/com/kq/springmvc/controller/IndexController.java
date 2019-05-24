@@ -36,7 +36,6 @@ public class IndexController {
             return "localIp="+localip;
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
 
             return "error="+e.getMessage();
