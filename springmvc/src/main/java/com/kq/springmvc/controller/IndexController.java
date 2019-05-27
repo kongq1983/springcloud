@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
+import java.util.Map;
 
 /**
  * IndexController
@@ -42,6 +43,15 @@ public class IndexController {
         }
     }
 
+
+    @ResponseBody
+    @RequestMapping( value = "/getEnv")
+    public Map getEnv() {
+
+        Map<String, String> map = System.getenv();
+
+        return map;
+    }
 
 
 
